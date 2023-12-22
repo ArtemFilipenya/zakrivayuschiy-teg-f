@@ -17,4 +17,522 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  color: var(--text-color);
+  font-family: var(--text-font, "Inter-Flex-Variable", sans-serif);
+  background-image: var(--page-background-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-size: var(--text-size);
+  font-variation-settings: 'wght' 400;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* хэдер */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 100px;
+}
+
+.header__theme-menu {
+  max-width: 700px;
+  width: 100%;
+  min-height: 368px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--Themes-mainColor);
+  background: var(--Themes-background);
+  margin-top: 102px;
+}
+
+@media (width <= 375px) {
+  .header__theme-menu {
+    min-height: 323px;
+  }
+}
+
+/* заголовок  */
+.header__title {
+  font-size: 65px;
+  font-style: normal;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: "PressStart2P";
+}
+
+@media (width <= 375px) {
+  .header__title {
+    font-size: 49px;
+  }
+}
+
+/* подзаголовок */
+.header__subtitle {
+  font-size: 23px;
+  font-style: normal;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family: "PressStart2P";
+}
+
+@media (width <= 375px) {
+  .header__subtitle {
+    font-size: 14px;
+  }
+}
+
+/* кнопки */
+.theme-menu__item {
+  margin-bottom: 10px;
+  font-family: "PressStart2P";
+}
+
+.theme-menu__item:last-child {
+  margin-bottom: 25px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  outline: none;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  padding-left: 25px;
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease-out;
+  position: absolute;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover::after {
+  width: 100%;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  z-index: 2;
+  color: var(--Themes-mainColor);
+  font-family: "PressStart2P";
+  position: absolute;
+  left: 0px;
+  transform: translateY(-50%);
+  animation-name: play;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  outline: none;
+}
+
+/* главная секция */
+.main-section {
+  display: grid;
+  justify-items: center;
+  gap: 48px;
+  padding-block-end: 105px;
+}
+
+@media (width <= 375px) {
+  .main-section {
+    gap: 48px;
+  }
+}
+
+/* карточки */
+.card {
+  max-inline-size: 700px;
+  background-color: var(--Themes-background);
+  border: 2px solid var(--Themes-mainColor);
+}
+
+/* заголовок */
+.card__title {
+  font-variation-settings: 'wght' 700;
+  font-size: var(--text-size);
+  font-style: normal;
+  padding-inline-start: 10px;
+  border-bottom: 2px solid var(--Themes-mainColor);
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+}
+
+@media (width <= 375px) {
+  .card__title {
+    padding-inline-start: 0px;
+    padding: 3px 10px;
+  }
+}
+
+/* изображение */
+.card__image-wrapper {
+  border-bottom: 2px solid var(--Themes-mainColor);
+  z-index: 1;
+  position: relative;
+}
+
+.card__image-text {
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  font-family: "PressStart2P";
+  font-size: 14px;
+  text-transform: uppercase;
+  z-index: 1;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+@media (width <= 375px) {
+  .card__image-text {
+    top: 25px;
+    right: 10px;
+  }
+}
+
+.image-text {
+  text-transform: lowercase;
+}
+
+.card__image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--Themes-background);
+  mix-blend-mode: hard-light;
+}
+
+.card__image {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+@supports (-webkit-text-stroke: 1px var(--border-label)) or (text-stroke: 1px var(--border-label)) {
+  .card__image-text {
+    text-shadow: none;
+    -webkit-text-stroke: 0.5px var(--border-label);
+    text-stroke: 0.5px var(--border-label);
+  }
+}
+
+/* описание каточки */
+.card__footer {
+  padding-top: 25px;
+}
+
+.card__text {
+  margin: 0 25px;
+  padding-bottom: 27px;
+  line-height: 21px;
+}
+
+@media (width <= 375px) {
+  .card__text {
+    margin: 0 25px;
+    padding-bottom: 27px;
+  }
+}
+
+/* лайк */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.button__heart {
+  margin-right: 10px;
+}
+
+.button__text {
+  color: var(--Themes-mainColor, #000);
+  font-family: "PressStart2P";
+  font-size: 14px;
+  padding: 0 28px;
+}
+
+.button__like {
+  border: 2px solid var(--Themes-mainColor);
+  background-color: var(--Themes-background);
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: var(--Themes-background);
+  color: var(--Themes-mainColor);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--btn-color-dark);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.button__icon {
+  fill: var(--Themes-mainColor);
+  transition: fill 0.5s ease-in-out;
+  width: 21px;
+  height: 21px;
+  margin-right: 5px;
+}
+
+@media (width <= 375px) {
+  .button__icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.button:hover .button__icon {
+  fill: var(--Themes-background);
+}
+
+.button:hover * {
+  color: var(--Themes-background);
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button:focus {
+  box-shadow: 2px 2px 0px 0px var(--Themes-mainColor);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon .core {
+  fill: var(--Themes-background);
+  transition: fill 0.3s;
+  transition-timing-function: linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--Themes-mainColor);
+}
+
+.like-icon:active .core {
+  fill: var(--heart-fill);
+}
+
+.like-icon .main-body {
+  fill: var(--Themes-background);
+  transition: fill 0.3s;
+  transition-delay: 0.05s;
+  transition-timing-function: linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--Themes-mainColor);
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-fill);
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill);
+  animation: fillHeartBody 0.4s ease forwards;
+}
+
+.like-icon.is-liked .core {
+  animation: fillMainBody 0.4s ease forwards 0.1s;
+}
+
+.like-icon .is-liked .contour {
+  fill: var(--heart-fill);
+  transition-delay: 0.06s;
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .contour {
+  animation: fillContour 0.4s ease forwards 0.2s;
+}
+
+.like-icon.is-liked {
+  animation: scaleHeart 0.4s ease-in-out forwards;
+}
+
+.like-icon.is-liked .sparks {
+  animation-name: sparks;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
+}
+
+/* фильтры  */
+
+.filter-grayscale {
+  filter: grayscale(60%);
+}
+
+.filter-saturate {
+  filter: saturate(170%);
+}
+
+.filter-multi {
+  filter: hue-rotate(40deg) contrast(70%) saturate(110%);
+}
+
+.filter-invert {
+  filter: invert(75%);
+}
+
+.filter-sepia {
+  filter: sepia(85%);
+}
+
+.filter-blur {
+  filter: blur(10px);
+}
+
+.filter-rotate {
+  filter: grayscale(30%) saturate(250%) blur(5px) hue-rotate(90deg) invert(25%);
+}
+
+/* сохранить на память */
+
+.button-save {
+  border: 2px solid var(--Themes-mainColor);
+  background-color: var(--Themes-background);
+  padding: 15px 20px;
+}
+
+@media (width <= 375px) {
+  .button-save {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.button-save__text {
+  color: var(--Themes-mainColor);
+  font-family: "PressStart2P";
+  font-size: 14px;
+  font-style: normal;
+  line-height: 90%;
+}
+
+.modal__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.modal__icon {
+  fill: var(--Themes-mainColor);
+  margin-right: 20px;
+}
+
+.modal__section svg {
+  width: 60px;
+  height: 60px;
+}
+
+.modal__text {
+  color: var(--Themes-mainColor);
+  font-family: "PressStart2P";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  text-transform: uppercase;
+  max-width: 234px;
+}
+
+.modal {
+  background-color: var(--Themes-background);
+  border: 2px solid var(--Themes-mainColor);
+  max-width: 357px;
+  padding: 31px;
+}
+
+@media (width <= 375px) {
+  .modal {
+    max-width: 341px;
+  }
+}
+
+.modal::backdrop {
+  background-color: #000000;
+  opacity: 0.75;
+}
+
+.modal__button {
+  border: 2px solid var(--Themes-mainColor);
+  background-color: var(--Themes-background);
+  padding: 10px 132px;
+}
+
+@media (width <= 375px) {
+  .modal__button {
+    padding: 10px 120px;
+  }
+}
+
+
+.button-modal__text {
+  color: var(--Themes-mainColor);
+  font-family: "PressStart2P";
+  font-size: 14px;
+  font-style: normal;
+  line-height: 90%;
+  text-transform: uppercase;
 }
