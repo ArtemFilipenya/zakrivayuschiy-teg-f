@@ -17,14 +17,15 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  color: var(--text-color);
+  color: var(--color-text-default);
   font-family: var(--text-font, "Inter-Flex-Variable", sans-serif);
+  background-color: #000000; /* Черный цвет фона в качестве резерва */
   background-image: var(--page-background-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-size: var(--text-size);
-  font-variation-settings: 'wght' var(--font-weight);
+  font-size: var(--font-size-default);
+  font-variation-settings: 'wght' var(--font-weight-normal);
 }
 
 .container {
@@ -163,7 +164,7 @@
 
 /* заголовок */
 .card__title {
-  font-variation-settings: 'wght' var(--font-weight-second);
+  font-variation-settings: 'wght' var(--font-weight-bold);
   font-style: normal;
   padding-inline-start: 10px;
   padding-top: 3px;
@@ -245,7 +246,7 @@
   padding-bottom: 27px;
   font-size: 18px;
   line-height: 21px;
-  font-variation-settings: 'wght' var(--font-weight);
+  font-variation-settings: 'wght' var(--font-weight-normal);
 }
 
 .card__text:last-child {
