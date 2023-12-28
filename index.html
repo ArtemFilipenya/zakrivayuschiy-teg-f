@@ -355,11 +355,6 @@
         </div>
     </article>
 
-
-    <div style="width: 20px; height: 20px;">
-        <img src="./svg/floppy-icon.svg" alt="Floppy Disk Icon">
-    </div>
-
     <!-- кнопка сохранить на память -->
     <button
             type="button"
@@ -367,7 +362,7 @@
             aria-controls="modal"
             class="button button-save">
         <svg class="button__icon" viewBox="0 0 29 28">
-            <use href="#floppy"/>
+            <use href="./svg/floppy.svg#floppy"/>
         </svg>
         <span class="button__text">Сохранить на память</span>
     </button>
@@ -376,8 +371,8 @@
 <!-- модальное окно -->
 <dialog class="modal" id="modal">
     <div class="modal__section">
-        <svg class="modal__icon" viewBox="0 0 29 28">
-            <use href="#floppy"/>
+        <svg class="modal__icon modal__floppy" viewBox="0 0 29 28">
+            <use href="./svg/floppy.svg#floppy"/>
         </svg>
         <p class="modal__text">Вставьте дискету,чтобы продолжить</p>
     </div>
